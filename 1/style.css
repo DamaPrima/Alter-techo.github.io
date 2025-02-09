@@ -1,0 +1,58 @@
+.menu {
+  display: flex;
+  justify-content: flex-end; /* Размещаем элементы справа */
+  background: #333;
+  padding: 10px;
+  align-items: center;
+}
+
+.menu a, summary {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact-info {
+  color: white;
+  margin-left: 20px;
+}
+
+/* Выпадающее меню (по умолчанию скрыто) */
+.dropdown {
+  display: none;
+  position: relative;
+}
+
+/* Контент выпадающего списка */
+.dropdown-content {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+/* Показываем контент, когда details открыт */
+.dropdown[open] .dropdown-content {
+  display: block;
+}
+
+/* Убираем стандартную стрелку summary */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Адаптив: скрываем контакты и включаем dropdown */
+@media (max-width: 768px) {
+  .contact-info {
+    display: none;
+  }
+
+  .dropdown {
+    display: block;
+  }
+}

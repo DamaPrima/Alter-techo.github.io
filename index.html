@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+  
+      .promo-media{
+        position: relative;
+      }
+      .background-triangle{
+        position: absolute;
+        left: -10px;
+        width: 220px;
+        height: 225px;
+        z-index: -2;
+      }
+      .container-video{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+        clip-path: polygon(50% 15%, 0% 100%, 100% 100%);
+        z-index: -1;
+      }
+      video {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: auto;
+          height: 100%;
+          transform: translate(-50%, -35%);
+      }
+      #playPauseButton{
+        all: unset;
+        background-color: #454c73;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: -25px;
+        left: 25px;
+        cursor: pointer;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #playPauseButton svg{
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        
+      }
+    </style>
+  </head>
+  <body>
+
+     
+      <div class="promo-media">
+        <svg class="background-triangle" viewBox="0 0 289 254">
+          <path d="M135.89 5.64844C139.739 -1.01823 149.361 -1.01823 153.21 5.64844L287.366 238.012C291.215 244.679 286.403 253.012 278.705 253.012H10.3947C2.69673 253.012 -2.11453 244.679 1.73447 238.012L135.89 5.64844Z" fill="#fe6f1f"/>
+        </svg>
+        <div class="container-video">
+          <video id="triangleVideo" loop muted>
+            <source src='images/video.mp4' type="video/mp4">
+          </video>
+        </div>
+        <button id="playPauseButton">
+          <svg viewBox="0 0 263 304">
+            <path d="M262.732 151.83L0.368164 303.306V0.354492L262.732 151.83Z" fill="white"/>
+          </svg>                     
+        </button>
+      </div>
+
+  </body>
+  <script>
+    const video = document.getElementById('triangleVideo');
+        const button = document.getElementById('playPauseButton');
+
+        button.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                button.innerHTML = '<svg viewBox="0 0 253 290"><path d="M156.667 0.555176H252.5V289.444H156.667V0.555176Z" fill="white"/><path d="M0.368164 0.555176H96.2012V289.444H0.368164V0.555176Z" fill="white"/></svg>';
+            } else {
+                video.pause();
+                button.innerHTML = '<svg viewBox="0 0 263 304"><path d="M262.732 151.83L0.368164 303.306V0.354492L262.732 151.83Z" fill="white"/></svg>';
+            }
+        });
+  </script>
+</html>
